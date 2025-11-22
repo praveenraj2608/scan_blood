@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: blood-scanner-mobile
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn mobile_app:app
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://praveensah2608_db_user:XEDQI2M5OWk4I3EE@cluster0.lilts6y.mongodb.net/lifelink_grid?retryWrites=true&w=majority
+      - key: PYTHON_VERSION
+        value: 3.11.0
