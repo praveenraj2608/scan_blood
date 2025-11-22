@@ -998,7 +998,7 @@ def search_blood():
             return jsonify({"success": False, "error": "No blood ID provided"}), 400
         
         # Case-insensitive search
-        blood_unit = blood_units.find_one({'blood_id': {'$regex': f'^{blood_id}, '$options': 'i'}})
+        blood_unit = blood_units.find_one({'blood_id': {'$regex': f'^{blood_id}$', '$options': 'i'}})
         
         if not blood_unit:
             return jsonify({"success": False, "error": "Blood unit not found"}), 404
